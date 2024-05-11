@@ -58,7 +58,6 @@ import com.intellij.toolWindow.computeToolWindowBeans
 import com.intellij.ui.ScreenUtil
 import com.intellij.util.TimeoutUtil
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Runnable
 import org.jetbrains.annotations.ApiStatus
 import java.awt.Dimension
 import java.awt.Frame
@@ -130,6 +129,7 @@ private class FrameAllocatorProjectInitObserver(
         task.join()
         val fileEditorManager = project.serviceAsync<FileEditorManager>() as FileEditorManagerImpl
         withContext(Dispatchers.EDT) {
+          // frameHelper.rootPane.getToolWindowPane().setDocumentComponent(JBLabel("Loading...", AnimatedIcon.Default(), SwingConstants.CENTER))
           frameHelper.rootPane.getToolWindowPane().setDocumentComponent(fileEditorManager.mainSplitters)
         }
       }

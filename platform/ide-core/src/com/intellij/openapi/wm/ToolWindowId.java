@@ -44,4 +44,6 @@ public interface ToolWindowId {
   String SERVICES = "Services";
   String ENDPOINTS = "Endpoints";
   String MEET_NEW_UI = "Meet New UI";
+  String PULL_REQUESTS = "Pull Requests";
+  String TERMINAL = "Terminal";
 }

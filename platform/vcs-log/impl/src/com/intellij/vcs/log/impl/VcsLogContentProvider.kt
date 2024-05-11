@@ -7,6 +7,7 @@ import com.google.common.util.concurrent.MoreExecutors
 import com.google.common.util.concurrent.SettableFuture
 import com.intellij.ide.DataManager
 import com.intellij.openapi.diagnostic.thisLogger
+import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Disposer
 import com.intellij.openapi.vcs.changes.ui.ChangesViewContentEP
@@ -22,8 +23,10 @@ import com.intellij.vcs.log.impl.VcsLogTabsManager.Companion.onDisplayNameChange
 import com.intellij.vcs.log.impl.VcsProjectLog.Companion.getLogProviders
 import com.intellij.vcs.log.ui.MainVcsLogUi
 import com.intellij.vcs.log.ui.VcsLogPanel
+import com.intellij.vcs.log.ui.editor.VcsLogVirtualFileSystem
 import org.jetbrains.annotations.NonNls
 import java.awt.BorderLayout
+import java.util.*
 import java.util.concurrent.ExecutionException
 import java.util.function.Predicate
 import java.util.function.Supplier
@@ -70,22 +73,10 @@ class VcsLogContentProvider(private val project: Project) : ChangesViewContentPr
   @RequiresEdt
   internal fun addMainUi(logManager: VcsLogManager) {
     ThreadingAssertions.assertEventDispatchThread()
-    if (ui == null) {
-      thisLogger<VcsLogContentProvider>().debug("Creating main Log ui for ${project.name}")
-
-      ui = logManager.createLogUi(MAIN_LOG_ID, VcsLogTabLocation.TOOL_WINDOW, false)
-      val panel = VcsLogPanel(logManager, ui!!)
-      container.add(panel, BorderLayout.CENTER)
-      DataManager.registerDataProvider(container, panel)
-
-      updateDisplayName()
-      ui!!.onDisplayNameChange { updateDisplayName() }
-
-      if (logCreationCallback != null) {
-        logCreationCallback!!.set(ui)
-        logCreationCallback = null
-      }
-    }
+    val file = VcsLogVirtualFileSystem.Holder.getInstance().
+    createVcsLogFile(logManager.myProject, UUID.randomUUID().toString(), null)
+    val editor = FileEditorManager.getInstance(project).openFile(file, false, true)
+    VcsLogEditorUtil.findVcsLogUi(editor,MainVcsLogUi::class.java)
   }
 
   private fun updateDisplayName() {

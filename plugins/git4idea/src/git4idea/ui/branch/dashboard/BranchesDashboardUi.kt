@@ -209,6 +209,7 @@ internal class BranchesDashboardUi(project: Project, private val logUi: Branches
     branchesPanelExpandableController = ExpandablePanelController(toolbar.component, branchesButton, branchesTreePanel)
     branchViewSplitter.firstComponent = branchesTreePanel
     branchesTreeWithLogPanel.addToLeft(branchesPanelExpandableController.expandControlPanel).addToCenter(branchViewSplitter)
+    // branchesTreeWithLogPanel.border = JBUI.Borders.customLineTop(UIUtil.getBoundsColor())
     mainPanel.isFocusCycleRoot = true
     mainPanel.focusTraversalPolicy = BRANCHES_UI_FOCUS_TRAVERSAL_POLICY
   }
