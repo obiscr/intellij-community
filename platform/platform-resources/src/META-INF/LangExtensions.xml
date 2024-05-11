@@ -390,7 +390,7 @@
                     serviceImplementation="com.intellij.find.impl.FindManagerImpl"/>
 
     <projectService serviceImplementation="com.intellij.ide.hierarchy.HierarchyBrowserManager" client="all"/>
-    <toolWindowExtractorMode id="Hierarchy" mode="per_client"/>
+    <!--<toolWindowExtractorMode id="Hierarchy" mode="per_client"/>-->
 
     <projectService serviceImplementation="com.intellij.codeInsight.documentation.DocumentationManager"/>
 
@@ -1064,9 +1064,9 @@
     <selectInTarget implementation="com.intellij.ide.bookmark.ui.BookmarksSelectInTarget"/>
     <actionPromoter implementation="com.intellij.ide.bookmark.actions.NodeMoveActionPromoter"/>
 
-    <toolWindow id="TODO" anchor="bottom" icon="AllIcons.Toolwindows.ToolWindowTodo"
-                factoryClass="com.intellij.ide.todo.TodoToolWindowFactory" canCloseContents="true"/>
-    <toolWindowExtractorMode id="TODO" mode="per_client"/>
+    <!--<toolWindow id="TODO" anchor="bottom" icon="AllIcons.Toolwindows.ToolWindowTodo"-->
+    <!--            factoryClass="com.intellij.ide.todo.TodoToolWindowFactory" canCloseContents="true"/>-->
+    <!--<toolWindowExtractorMode id="TODO" mode="per_client"/>-->
     <projectService serviceImplementation="com.intellij.ide.todo.TodoViewChangesSupport"/>
 
     <psi.fileReferenceHelper implementation="com.intellij.psi.impl.source.resolve.reference.impl.providers.PsiFileReferenceHelper"/>
@@ -1643,9 +1643,9 @@
                     serviceImplementation="com.intellij.codeInsight.daemon.impl.HectorComponentFactoryImpl"/>
     <editorFactoryListener implementation="com.intellij.internal.statistic.fileTypes.UpdateComponentEditorListener"/>
 
-    <toolWindow id="Problems View" anchor="bottom" icon="AllIcons.Toolwindows.ToolWindowProblemsEmpty" canCloseContents="true"
-                factoryClass="com.intellij.analysis.problemsView.toolWindow.ProblemsView"/>
-    <toolWindowExtractorMode id="Problems View" mode="per_client"/>
+    <!--<toolWindow id="Problems View" anchor="bottom" icon="AllIcons.Toolwindows.ToolWindowProblemsEmpty" canCloseContents="true"-->
+    <!--            factoryClass="com.intellij.analysis.problemsView.toolWindow.ProblemsView"/>-->
+    <!--<toolWindowExtractorMode id="Problems View" mode="per_client"/>-->
     <notificationGroup id="Automatic Module Unloading" displayType="BALLOON" bundle="messages.ProjectBundle"
                        key="notification.group.automatic.module.unloading"/>
     <notificationGroup id="Execution" displayType="TOOL_WINDOW" bundle="messages.ExecutionBundle" key="notification.group.execution"/>

@@ -531,8 +531,8 @@
 
     <applicationService serviceInterface="com.intellij.diagnostic.EventWatcher"
                         serviceImplementation="com.intellij.diagnostic.EventWatcherService" headlessImplementation=""/>
-    <toolWindow id="Events Watcher" anchor="bottom" canCloseContents="false" doNotActivateOnStart="true"
-                factoryClass="com.intellij.diagnostic.ui.EventWatcherToolWindowFactory"/>
+    <!--<toolWindow id="Events Watcher" anchor="bottom" canCloseContents="false" doNotActivateOnStart="true"-->
+    <!--            factoryClass="com.intellij.diagnostic.ui.EventWatcherToolWindowFactory"/>-->
 
     <applicationService serviceInterface="com.intellij.openapi.fileEditor.FileNavigator"
                         serviceImplementation="com.intellij.openapi.fileEditor.FileNavigatorImpl"/>

@@ -40,7 +40,7 @@
                      groupBundle="messages.JsonPathBundle" groupKey="jsonpath.inspection.group"
                      level="WARNING" enabledByDefault="true"/>
 
-    <toolWindowAllowlist id="JSONPathEvaluate"/>
+    <!--<toolWindowAllowlist id="JSONPathEvaluate"/>-->
 
     <intentionAction>
       <language>JSONPath</language>
